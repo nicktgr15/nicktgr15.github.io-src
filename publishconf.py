@@ -21,4 +21,6 @@ DELETE_OUTPUT_DIRECTORY = False
 # Following items are often useful when publishing
 
 #DISQUS_SITENAME = ""
-#GOOGLE_ANALYTICS = ""
+GOOGLE_ANALYTICS = "UA-37767324-2"
+
+ICONS.insert(0, ('feed', SITEURL + '/' + FEED_ALL_ATOM))

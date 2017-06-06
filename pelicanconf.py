@@ -38,9 +38,9 @@ THEME = 'themes/pelican-alchemy/alchemy'
 
 SITESUBTITLE = 'Wisdom reveals as I unlearn to learn'
 
-ICONS = (
+ICONS = [
     ('github', 'https://github.com/nicktgr15'),
-)
+]
 
 SITEIMAGE = '/images/main-gray.jpg width=170 height=170'
 
@@ -49,3 +49,5 @@ LINKS = ()
 HIDE_AUTHORS = True
 
 SITEMAP_SAVE_AS = 'sitemap.xml'
+
+
