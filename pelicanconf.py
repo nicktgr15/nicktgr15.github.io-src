@@ -36,13 +36,14 @@ DEFAULT_PAGINATION = 10
 
 THEME = 'themes/pelican-alchemy/alchemy'
 
-SITESUBTITLE = 'Wisdom reveals as I unlearn to learn'
+# SITESUBTITLE = 'Wisdom reveals as I unlearn to learn'
 
 ICONS = [
     ('github', 'https://github.com/nicktgr15'),
+    ('linkedin', 'https://www.linkedin.com/in/nikolaos-tsipas-a6103563'),
 ]
 
-SITEIMAGE = '/images/main-gray.jpg width=170 height=170'
+#SITEIMAGE = '/images/main-gray.jpg width=170 height=170'
 
 LINKS = ()
 
