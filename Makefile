@@ -37,6 +37,9 @@ ifeq ($(RELATIVE), 1)
 	PELICANOPTS += --relative-urls
 endif
 
+get_submodules:
+	git submodule  update --init --recursive
+
 help:
 	@echo 'Makefile for a pelican Web site                                           '
 	@echo '                                                                          '
