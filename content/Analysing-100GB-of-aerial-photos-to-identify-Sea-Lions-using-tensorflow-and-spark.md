@@ -1,7 +1,7 @@
 Title: Analysing 100GB of aerial photos to identify Sea Lions using tensorflow and spark on AWS
 Date: 2017-6-12 10:20
 Category: Machine Learning
-Tags: convnets convolutional networks machine learning spark parallel processing python
+Tags: convnets, convolutional neural networks, machine learning, spark, parallel processing, python
 
 
 With this post I will attempt to describe the approach I followed in order to analyze 100GB of image data for the purpose of counting sea lions as part of the [this](https://www.kaggle.com/c/noaa-fisheries-steller-sea-lion-population-count) kaggle competition. The reason why I found this competition an interesting challenge was threefold: it was for a good cause, it was a good opportunity to apply recently acquired knowledge about convnets/tensorflow and finally, it was a nice example of using spark as a parallel processing engine to speed up single-threaded applications. 
