@@ -51,4 +51,6 @@ HIDE_AUTHORS = True
 
 SITEMAP_SAVE_AS = 'sitemap.xml'
 
+PLUGIN_PATHS=['./plugins']
+PLUGINS = ["render_math"]
 
