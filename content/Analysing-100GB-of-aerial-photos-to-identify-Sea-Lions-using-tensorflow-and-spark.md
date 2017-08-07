@@ -30,8 +30,10 @@ The submitted results are evaluated using the Root Mean Square Error (RMSE) metr
 
 #### Matching the Dots
 
+Or to be more accurate: counting the dots. In the following figure two example images from the training data are presented. On the left side the original image is presentend while on the right side the sea lions on the image have been annotated using dots of different colours.
 
-Or to be more accurate: counting the dots.
+<img style="width:100%;margin:auto;display:block;" src="/images/montage_0.jpg"/>
+
 
 #### Training a Convolutional Neural Network
 
