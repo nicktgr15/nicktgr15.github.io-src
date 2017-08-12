@@ -65,7 +65,7 @@ To speedup the above procedure, which was underutilising the multiple cores avai
 With this spark job we wanted to achieve the following:  
 
 * From each training image extract metadata with the coordinates of the sea lions 
-* From each training image generate 64x64 thumbnails centered coordinates extracted in the previous step  
+* From each training image generate 64x64 thumbnails centered on the coordinates extracted in the previous step  
 
 Let's go through the actual code.
 
