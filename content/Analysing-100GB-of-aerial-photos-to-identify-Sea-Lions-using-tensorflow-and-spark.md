@@ -90,17 +90,20 @@ with open("training_metadata.json", "wb") as f:
     json.dump(metadata, f)
 
 # create thumbnails for every sea lion in the training data
-sc.parallelize(results).map(util.extract_training_images).collect()
+sc.parallelize(metadata).map(util.extract_training_images).collect()
 ```
 
 * **lines 7-9**: Spark job initialisation and metadata
 * **line 11**: `filepaths` contains the absolute locations of the training images after some filtering to remove a subset of images flagged as inappropriate for training by the organisers
 * **line 14**: This is an example of a Resilient Distributed Dataset (RDD) in spark. The `parallelize` function receives as input a list containing the available training images and using the `map` function applies the metadata extraction function `util.extract_training_data(training_image)` to each one of them. In spark terminology, the `parallelize` and `map` are considered "transformations" and as such no processing is triggered by them. The processing is triggered using an "action", which in this case is the `.collect()` call which fetches the entire RDD to the driver. The RDD returned is a list with the metadata dictionaries described earlier.
 The following screenshot from the spark ui shows that only one executor is created when running locally in standalone mode and that executor is able to execute 8 tasks in parallel which in this case is equal to the  4 cores x 2 threads of an intel i7 cpu.
-
-<img style="width:100%;margin:auto;padding-left:50px;display:block;" src="/images/executor.png"/>
+<img style="width:100%;margin:auto;" src="/images/executor.png"/>
+* **lines 16-17**: Metadata written on disk in json form
+* **line 20**: Another RDD is formed here, this time `results` contains the list of dicts created earlier while the map function `util.extract_training_images(image_metadata)` receives as input one of those dicts. The map function generates 64x64 thumbnails centered on the dots detected in the previous step which are written on disk using the following template `img_<image-filename>-<class>-<thumbnail-no>-<offset><extension`. An offset of `[-1, 0, 1]` is used to produce three thumbnails from each dot, two of which are not exactly centered but moved 1 pixel diagonally up and down.
 
 #### Training a Convolutional Neural Network
+
+At this point we have a number of 64x64 pixel thumbnails for each class that can be used to train a sea lion classification algorithm. 
 
 #### Brute forcing object detection
 
