@@ -54,7 +54,7 @@ This whole, devious procedure is required because of the way the training data w
 }
 ```
 
-#####  Spark, sparks creative (and a bit unorthodox) thinking
+####  Spark, sparks creative (and a bit unorthodox) thinking
 
 To speedup the above procedure, which was underutilising the multiple cores available on my macbook, an attempt to parallelise it using spark was made. Spark is quite straightforward to run locally in standalone mode, and will by default utilise all available cpu resources. As long as Java is installed, the binaries can be downloaded from [https://spark.apache.org/downloads.html](https://spark.apache.org/downloads.html) and after extracting the contents of the archive a spark job can be executed as follows:
 
@@ -105,7 +105,86 @@ The following screenshot from the spark ui shows that only one executor is creat
 
 At this point we have a number of 64x64 pixel thumbnails for each class that can be used to train a sea lion classification algorithm. 
 
+Using Keras on top of Tensorflow we can create a simple convolutional neural network (CNN) which can be used for 6 class classification.
+The total number of classes is 6 because we have 5 classes of sea lions plus one class for thumbnails not matching any of those 5 classes.
+
+The model is defined with the following function:
+
+```
+#!python
+def create_model():
+    model = Sequential()
+
+    model.add(Lambda(lambda x: (x / 255.0) - 0.5, input_shape=(64, 64, 3)))
+    
+    model.add(Conv2D(32, (3, 3), activation='relu'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+
+    model.add(Conv2D(64, (3, 3), activation='relu'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+
+    model.add(Conv2D(128, (3, 3), activation='relu'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+
+    model.add(Flatten())
+
+    model.add(Dense(512, activation='relu'))
+    model.add(Dropout(0.5))
+    model.add(Dense(512, activation='relu'))
+    model.add(Dropout(0.5))
+    model.add(Dense(6, activation='softmax'))
+
+    model.compile(loss='categorical_crossentropy', optimizer='adam',
+                  metrics=['accuracy'])
+    return model
+```
+
+The above model is a very naive and standard CNN. In **line 4** a lambda function is used to normalise the pixel values in the range of `[-0.5, 0.5]`.
+The 64x64 thumbnails given as input are having 3 channels (RGB).
+
 #### Brute forcing object detection
 
+In order to detect the number of sea lions on the test images the trained model was utilised in another spark job. 
+The aim in this case was to receive the count of sea lions from every image in a dictionary like the following:
+```
+#!python
+counts = {
+        'adult_females': 0,
+        'adult_males': 0,
+        'juveniles': 0,
+        'non_seal': 0,
+        'pups': 0,
+        'subadult_males': 0,
+    }
+```
+
+A new map function was defined, in which the input image was partitioned in non overlapping 64x64 thumbnails and each one of those 
+was classified in one of the 6 available classes.
+
+```
+#!python
+results = sc.parallelize(files).map(util.count_sea_lions).collect()
+```
+
+The classification step in the `count_sea_lions` function was as follows:
+```
+#!python
+for i in range(0, img.shape[0], 64):
+    for j in range(0, img.shape[1], 64):
+        thumb = img[i:i+64, j:j+64, :]
+        prediction = model_6_class.predict(thumb.reshape(1, 64, 64, 3))
+        prediction = np.argmax(prediction)
+        counts[classes[prediction]] += 1
+```
+
+#### Vertical Scaling on AWS EC2
+
+Running the above spark job for the classification of 86GB of test images was a very slow process on my macbook.
+In order to speed things up an EC2 instance with a significantly higher number of cores was employed. 
+
+Although spark is normally used for horizontal scaling, it can also be used to parallelise processes on multi-core machines. 
+The vertical scaling was also chosen because I tried to avoid using AWS EMR and complex master-slave setups. 
 
 #### Putting it all together
+
+<img style="width:100%;margin:auto;display:block;" src="/images/result.png"/>
