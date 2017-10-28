@@ -20,7 +20,7 @@ DELETE_OUTPUT_DIRECTORY = False
 
 # Following items are often useful when publishing
 
-DISQUS_SITENAME = "nicktgr15.github.io"
+DISQUS_SITENAME = "nicktgr15-github-io"
 GOOGLE_ANALYTICS = "UA-37767324-2"
 
 ICONS.insert(0, ('feed', SITEURL + '/' + FEED_ALL_ATOM))
