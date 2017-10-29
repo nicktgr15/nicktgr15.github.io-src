@@ -6,7 +6,7 @@ Tags: convnets, convolutional neural networks, machine learning, spark, parallel
 
 With this post I will attempt to describe the approach I followed in order to analyze 100GB of image data for the purpose of identifying sea lions in aerial photos as part of [this](https://www.kaggle.com/c/noaa-fisheries-steller-sea-lion-population-count) kaggle competition. The reason why I found this competition an interesting challenge was threefold: was for a good cause, was a good opportunity to apply recently acquired knowledge about convnets/tensorflow and finally, was a nice example of using spark as a parallel processing engine to speed up single-threaded applications. 
 
-#### The competition
+## The competition
 
 If you are not familiar with kaggle competitions, most of the time they follow the same pattern which involves a dataset, provided to the contestants, and a submission format, usually in csv, which must be used as a template to submit results back to kaggle. Kaggle has the corresponding ground truth data for the submissions of the contestants and based on a predefined metric function a result is calculated. In this case, the above were as follows:
 
@@ -28,7 +28,7 @@ The submitted results are evaluated using the Root Mean Square Error (RMSE) metr
 
     $RMSE_{avg} = \frac{1}{5}(\sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_{adult-males} - \hat{y}_{adult-males})^2} + ... + \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_{pups} - \hat{y}_{pups})^2})$
 
-#### Matching the Dots
+## Matching the Dots
 
 Or to be more accurate: finding and counting the dots. The training dataset images come in two versions, a plain image and a dotted image. On the dotted image each dot represents the location of a sea lion, while its colour indicates the corresponding sea lion type/class. As already mentioned, there are 5 types/classes of sea lions in the training data `adult_males, subadult_males, adult_females, juveniles, pups`.
 
@@ -54,7 +54,7 @@ This whole, devious procedure is required because of the way the training data w
 }
 ```
 
-####  Spark sparks creative (and a bit unorthodox) thinking
+##  Spark sparks creative (and a bit unorthodox) thinking
 
 To speedup the above procedure, which was underutilising the multiple cores available on my macbook, an attempt to parallelise it using spark was made. Spark is quite straightforward to run locally in standalone mode, and will by default utilise all available cpu resources. As long as Java is installed, the binaries can be downloaded from [https://spark.apache.org/downloads.html](https://spark.apache.org/downloads.html) and after extracting the contents of the archive a spark job can be executed as follows:
 
@@ -101,7 +101,7 @@ The following screenshot from the spark ui shows that only one executor is creat
 * **lines 16-17**: Metadata written on disk in json form
 * **line 20**: Another RDD is formed here, this time `results` contains the list of dicts created earlier while the map function `util.extract_training_images(image_metadata)` receives as input one of those dicts. The map function generates 64x64 thumbnails centered on the dots detected in the previous step which are written on disk using the following template `img_<image-filename>-<class>-<thumbnail-no>-<offset><extension`. An offset of `[-1, 0, 1]` is used to produce three thumbnails from each dot, two of which are not exactly centered but moved 1 pixel diagonally up and down.
 
-#### Training a Convolutional Neural Network
+## Training a Convolutional Neural Network
 
 At this point we have a number of 64x64 pixel thumbnails for each class that can be used to train a sea lion classification algorithm. 
 
@@ -142,12 +142,11 @@ def create_model():
 The above model is a very naive and standard CNN. In **line 4** a lambda function is used to normalise the pixel values in the range of `[-0.5, 0.5]`.
 The 64x64 thumbnails given as input have 3 channels (RGB).
 
-#### Brute forcing object detection
+## Brute forcing object detection
 
 In order to detect the number of sea lions on the test images the trained model was utilised in another spark job. 
 The aim in this case was to receive the count of sea lions from every image in a dictionary like the following:
 ```
-#!python
 counts = {
         'adult_females': 0,
         'adult_males': 0,
@@ -162,7 +161,6 @@ A new map function was defined, in which the input image was partitioned in non 
 was classified in one of the 6 available classes.
 
 ```
-#!python
 results = sc.parallelize(files).map(util.count_sea_lions).collect()
 ```
 
@@ -177,13 +175,21 @@ for i in range(0, img.shape[0], 64):
         counts[classes[prediction]] += 1
 ```
 
-#### Vertical Scaling on AWS EC2
+## Vertical Scaling on AWS EC2
 
 Running the above spark job for the classification of 86GB of test images was a very slow process on my macbook.
 In order to speed things up an EC2 instance with a significantly higher number of cores was employed. 
 
 Although spark is normally used for horizontal scaling, it can also be used to parallelise processes on multi-core machines. 
 The vertical scaling was also chosen because I tried to avoid using AWS EMR and complex master-slave setups. 
+
+#### Picking the right/cheapest ec2 instance type
+
+As the training task seemed to be more CPU bound and optimising for cost was a requirement I needed to find an ec2 spot instance that 
+would satisfy both requirements. To avoid using the ec2 price explorer provided on the AWS console I wrote a small script to present the 
+currently available ec2 instances and their cost based on a number of aggregations. For this particular task I needed to find an ec2 instance
+with at least 15 cores and with the lowest price per core.
+
 
 #### Putting it all together
 

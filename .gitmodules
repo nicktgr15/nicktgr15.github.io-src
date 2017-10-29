@@ -1,10 +1,9 @@
-[submodule "themes/pelican-alchemy"]
-	path = themes/pelican-alchemy
-	url = https://github.com/nairobilug/pelican-alchemy
-
 [submodule "output"]
 	path = output
 	url = https://github.com/nicktgr15/nicktgr15.github.io.git
 [submodule "plugins"]
 	path = plugins
 	url = https://github.com/getpelican/pelican-plugins.git
+[submodule "themes/pelican-alchemy"]
+	path = themes/pelican-alchemy
+	url = git@github.com:nicktgr15/pelican-alchemy.git
