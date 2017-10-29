@@ -177,20 +177,74 @@ for i in range(0, img.shape[0], 64):
 
 ## Vertical Scaling on AWS EC2
 
-Running the above spark job for the classification of 86GB of test images was a very slow process on my macbook.
+Running the above spark jobs for the classification of 86GB of test images was a very slow process on my macbook.
 In order to speed things up an EC2 instance with a significantly higher number of cores was employed. 
 
-Although spark is normally used for horizontal scaling, it can also be used to parallelise processes on multi-core machines. 
+Although spark is normally used with horizontal scaling, it can also be used to parallelise processes on multi-core machines. 
 The vertical scaling was also chosen because I tried to avoid using AWS EMR and complex master-slave setups. 
 
-#### Picking the right/cheapest ec2 instance type
+#### Picking the right ec2 instance
 
-As the training task seemed to be more CPU bound and optimising for cost was a requirement I needed to find an ec2 spot instance that 
-would satisfy both requirements. To avoid using the ec2 price explorer provided on the AWS console I wrote a small script to present the 
-currently available ec2 instances and their cost based on a number of aggregations. For this particular task I needed to find an ec2 instance
-with at least 15 cores and with the lowest price per core.
+As the task seemed to be more CPU bound and optimising for cost was a nice-to-have I started looking for an ec2 spot instance that 
+would satisfy both. To avoid using the ec2 price explorer provided on the AWS console UI I wrote a small script to present the 
+currently available ec2 instances and their cost based on a number of "features". For this particular task I needed to find an ec2 instance
+with at with 32 cores and the lowest price per core.
+
+The script is availabe on github: [https://github.com/nicktgr15/ec2-spot-instance-finder](https://github.com/nicktgr15/ec2-spot-instance-finder)
+
+Based on the results `r4.8xlarge` was chosen.
+
+## Putting it all together
+
+At this point I had:
+* a trained model
+* the test dataset available on the ec2 instance (could have been s3 if it was bigger)
+* spark configured on the 32-core ec2 instance (the setup was exactly the same as the one I had locally)
+* a job that was receiving as input the filename of each one of the test images and was producing an output like the following
+```
+{
+    "adult_males": 2, 
+    "juveniles": 30, 
+    "pups": 4, 
+    "filename": "15024.jpg", 
+    "adult_females": 5, 
+    "non_seal": 5005, 
+    "subadult_males": 0
+}
+```
+
+The spark job took around 15 hours to complete.
+
+The results from the 18636 test images were aggregated and formatted to match the competition template.
+The first few lines from the submission file were as follows:
+```
+test_id,adult_males,subadult_males,adult_females,juveniles,pups
+0,3,0,9,14,3
+1,3,0,9,6,10
+2,5,0,18,26,42
+3,3,1,17,36,9
+4,48,0,78,52,40
+5,1,0,28,12,41
+6,2,0,14,12,45
+...
+```
 
 
-#### Putting it all together
+The file was submitted to kaggle and as expected it received a quite low score mainly due to the naivety of the approach.
 
 <img style="width:100%;margin:auto;display:block;" src="/images/result.png"/>
+
+## The end
+
+The focus of this experiment was mainly on:
+
+- having a hands-on experience with spark employed as a parallel processing engine (on and off AWS)  
+- using convnets with a Big dataset (this was the first time I was using convnets for an image classification task)
+- having a complete submission for the competition by spending just a couple of days on the problem
+
+The amount of time spent on building the model was kept to as little as possible and of course there are many 
+improvements that could be done on that side. Similarly, algorithms like *Select Search* could be employed to speed things up during the
+classification etc.
+
+Closing, I'd say that I definitely learned a lot by participating and I hope that you also learned something new in this blog post.
+I'm looking forward to comments and further discussion!
