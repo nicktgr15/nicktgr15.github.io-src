@@ -243,7 +243,7 @@ The focus of this experiment was mainly on:
 - having a complete submission for the competition by spending just a couple of days on the problem
 
 The amount of time spent on building the model was kept to as little as possible and of course there are many 
-improvements that could be done on that side. Similarly, algorithms like *Select Search* could be employed to speed things up during the
+improvements that could be done on that side. Similarly, algorithms like *Selective Search* could be employed to speed things up during the
 classification etc.
 
 Closing, I'd say that I definitely learned a lot by participating and I hope that you also learned something new in this blog post.
