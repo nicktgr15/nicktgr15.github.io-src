@@ -9,7 +9,7 @@ spaces where these techniques can be applied. As a big fan of cloud computing I 
 I could have my GPU/Compute instance up and running in a couple of minutes. More recently and as the cryptocurrency madness
 was taking off I realised that I had to increase my spot instance bidding price almost on a daily basis.
 
-<img style="width:80%;margin:auto;display:block;" src="/images/bitcoin-vs-aws.png"/>
+<img style="width:80%;margin:auto;display:block;" src="images/bitcoin-vs-aws.png"/>
 
 
 I checked the spot instance pricing charts on AWS and realised that there was huge fluctuation of the prices.
@@ -54,7 +54,7 @@ The plan was to use a recent platform (Kaby Lake) in order to be as power effici
 components in the future. It was quite difficult to find a GTX 1070 ti in stock online, for the record, http://amazon.co.uk didn't have
 any available.
 
-<img style="width:70%;margin:auto;display:block;" src="/images/pc.png"/>
+<img style="width:70%;margin:auto;display:block;" src="images/pc.png"/>
 
 
 Taking into account the current price of `p2.xlarge` spot instance on AWS ($0.38 USD/0.27 GBP per hour) with the money
@@ -79,7 +79,7 @@ The power consumption of the server was tested using a power meter and the resul
 The GPU temperature under load was `66` degrees Celsius while the CPU never exceeded `50` degrees with the stock cooler.
 I was impressed by how small and thin CPU stock coolers are nowadays.
 
-<img style="width:30%;margin:auto;display:block;" src="/images/stock-g4600.png"/>
+<img style="width:30%;margin:auto;display:block;" src="images/stock-g4600.png"/>
 
 <blockquote class="blockquote">
 I was impressed by how small and thin CPU stock coolers are nowadays.
