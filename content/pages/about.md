@@ -1,6 +1,6 @@
 Title: About
 
-Software engineer by day, PhD student by night.
+Software engineer by day, machine learning researcher by night.
 
 Interested in machine learning, distributed systems, analytics, monitoring, caching, multimedia content distribution and analysis, web services, java, python and many others.
 
