@@ -51,14 +51,14 @@ Long story short, the system consists of the following components:
 </table>
 
 The plan was to use a recent platform (Kaby Lake) in order to be as power efficient as possible and have the ability to upgrade
-components in the future. It was quite difficult to find a GTX 1070 ti in stock online, for the record. amazon.co.uk didn't have
+components in the future. It was quite difficult to find a GTX 1070 ti in stock online, for the record, http://amazon.co.uk didn't have
 any available.
 
 <img style="width:70%;margin:auto;display:block;" src="/images/pc.png"/>
 
 
-Taking into account the current price of `p2.xlarge` spot instance on AWS ($0.38 USD/0.27 GBP per hour)  the above money
-would buy me `127` days of usage while with the standard price (0.70 GBP per hour) that numbe would be `49` days.
+Taking into account the current price of `p2.xlarge` spot instance on AWS ($0.38 USD/0.27 GBP per hour) with the money
+spent to build my server I could buy `127` days of usage while with the standard price (0.70 GBP per hour) that number would be `49` days.
 
 ##### Power Consumption / Temperatures
 
