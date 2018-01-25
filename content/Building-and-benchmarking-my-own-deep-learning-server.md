@@ -86,7 +86,7 @@ any available.
 
 
 Taking into account the current price of `p2.xlarge` spot instance on AWS ($0.38 USD/0.27 GBP per hour) with the money
-spent to build my server I could buy `127` days of usage while with the standard price (0.70 GBP per hour) that number would be `49` days.
+spent to build my server I could buy `140` days of usage while with the standard price (0.70 GBP per hour) that number would be `54` days.
 
 ##### Power Consumption / Temperatures
 
@@ -129,13 +129,13 @@ The execution time was captured using the `time` command.
 ```
 Train on 300000 samples, validate on 120000 samples
 Epoch 1/20
-2018-01-17 14:09:02.298955: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2
-2018-01-17 14:09:02.483330: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:892] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
-2018-01-17 14:09:02.487780: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties:
+2018-01-21 14:09:02.298955: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2
+2018-01-21 14:09:02.483330: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:892] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-01-21 14:09:02.487780: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties:
 name: GeForce GTX 1070 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.683
 pciBusID: 0000:01:00.0
 totalMemory: 7.92GiB freeMemory: 7.74GiB
-2018-01-17 14:09:02.488319: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: GeForce GTX 1070 Ti, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2018-01-21 14:09:02.488319: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: GeForce GTX 1070 Ti, pci bus id: 0000:01:00.0, compute capability: 6.1)
  - 58s - loss: 0.2104 - accuracy: 0.6624 - val_loss: 0.1836 - val_accuracy: 0.7135
 Epoch 2/20
  - 54s - loss: 0.1816 - accuracy: 0.7207 - val_loss: 0.1719 - val_accuracy: 0.7361
@@ -187,13 +187,13 @@ sys	8m24.313s
 
 Train on 300000 samples, validate on 120000 samples
 Epoch 1/20
-2018-01-17 14:42:33.663872: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
-2018-01-17 14:42:36.325831: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:892] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
-2018-01-17 14:42:36.326197: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties:
+2018-01-21 14:42:33.663872: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+2018-01-21 14:42:36.325831: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:892] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-01-21 14:42:36.326197: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties:
 name: Tesla K80 major: 3 minor: 7 memoryClockRate(GHz): 0.8235
 pciBusID: 0000:00:1e.0
 totalMemory: 11.17GiB freeMemory: 11.10GiB
-2018-01-17 14:42:36.326225: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: Tesla K80, pci bus id: 0000:00:1e.0, compute capability: 3.7)
+2018-01-21 14:42:36.326225: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: Tesla K80, pci bus id: 0000:00:1e.0, compute capability: 3.7)
 ^[[D - 178s - loss: 0.2113 - accuracy: 0.6593 - val_loss: 0.1838 - val_accuracy: 0.7106
 Epoch 2/20
  - 98s - loss: 0.1800 - accuracy: 0.7245 - val_loss: 0.1719 - val_accuracy: 0.7319
