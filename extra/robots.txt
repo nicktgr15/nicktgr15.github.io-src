@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: {{ site.url }}/feeds/all.atom.xml
+Sitemap: {{ site.url }}/sitemap.xml
