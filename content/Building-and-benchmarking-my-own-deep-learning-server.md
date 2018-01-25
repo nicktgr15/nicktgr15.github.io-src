@@ -69,7 +69,7 @@ Long story short, the system consists of the following components:
 <tbody>
 <tr><td>Motherboard</td><td>GIGABYTE GA-B250M-DS3H</td><td>58.85</td></tr>
 <tr><td>CPU</td><td>Intel G4600</td><td>59.99</td></tr>
-<tr><td>RAM</td><td>2 x Ballistix Sport LT 8GB </td><td>82.23</td></tr>
+<tr><td>RAM</td><td>2 x Ballistix Sport LT 8GB (16GB)</td><td>164.46</td></tr>
 <tr><td>PSU</td><td>EVGA 600 W1</td><td>43.21</td></tr>
 <tr><td>Storage</td><td>Samsung 850 EVO 250 SSD</td><td>82.87</td></tr>
 <tr><td>GPU</td><td>Palit GeForce GTX 1070 Ti JetStream 8GB GDDR5</td><td>463.97</td></tr>
