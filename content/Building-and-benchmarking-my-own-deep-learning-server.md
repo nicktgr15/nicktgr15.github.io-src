@@ -11,7 +11,6 @@ was taking off I realised that I had to increase my spot instance bidding price 
 
 <img style="width:80%;margin:auto;display:block;" src="images/bitcoin-vs-aws.png"/>
 
-
 I checked the spot instance pricing charts on AWS and realised that there was huge fluctuation of the prices.
 I'm not sure it's definitely the case but there might be some correlation between the current value of Bitcoin
 and the AWS EC2 spot instance prices. I would expect Amazon to aim for a spot price that makes
@@ -26,7 +25,36 @@ Furthermore, the `p2.xlarge` I was using, was employing a Tesla K80 GPU which is
 After checking a few benchmarks online it was clear that a Pascal architecture GPU with a similar amount of cores and memory
 would be probably faster.
 
-### The Server
+### The p2.xlarge EC2 instance
+
+The `p2.xlarge` EC2 instance is a virtual machine with the following specs:
+
+<table class="table table-striped">
+<thead>
+<tr>
+<th>GPU Count</th><th>vCPU Count</th><th>Memory</th>
+<th>Parallel Processing Cores</th>
+<th>GPU Memory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td><td>4</td><td>61 GiB</td><td>2496</td><td>12 GiB</td>
+</tr>
+</tbody>
+</table>
+
+Amazon claims that the `p2.xlarge` is utilising the `Tesla K80` GPU however this is only *half* of the story.
+The `Tesla K80` specs on the [nvidia website](http://www.nvidia.com/object/tesla-k80.html) mention 4992 cuda cores
+*with a dual-GPU design* and 24 GB of GDDR5 memory. Apparently the `K80` is based on two `GK210` chips on a single PCB
+and in the way this particular VM is configured, only one of these chips is available to the user. So to be fair,
+with a `p2.xlarge` you have access to half of the resources of a `Tesla K80`.
+
+<blockquote class="blockquote">
+Amazon claims that the p2.xlarge is utilising the Tesla K80 GPU however this is only half of the story
+</blockquote>
+
+### My Server
 
 Long story short, the system consists of the following components:
 
@@ -39,19 +67,19 @@ Long story short, the system consists of the following components:
 </tr>
 </thead>
 <tbody>
-<tr><td>Motherboard</td><td>GIGABYTE GA-B250M-DS3H</td><td>58.85</td>
+<tr><td>Motherboard</td><td>GIGABYTE GA-B250M-DS3H</td><td>58.85</td></tr>
 <tr><td>CPU</td><td>Intel G4600</td><td>59.99</td></tr>
-<tr><td>RAM</td><td>1 x Ballistix Sport LT 8GB </td><td>82.23</td></tr>
+<tr><td>RAM</td><td>2 x Ballistix Sport LT 8GB </td><td>82.23</td></tr>
 <tr><td>PSU</td><td>EVGA 600 W1</td><td>43.21</td></tr>
 <tr><td>Storage</td><td>Samsung 850 EVO 250 SSD</td><td>82.87</td></tr>
 <tr><td>GPU</td><td>Palit GeForce GTX 1070 Ti JetStream 8GB GDDR5</td><td>463.97</td></tr>
 <tr><td>Case</td><td>Aerocool QS240 M-ATX</td><td>29.99</td></tr>
-<tr><td></td><td></td><td>821.11</td></tr>
+<tr><td></td><td></td><td>903.34</td></tr>
 </tbody>
 </table>
 
 The plan was to use a recent platform (Kaby Lake) in order to be as power efficient as possible and have the ability to upgrade
-components in the future. It was quite difficult to find a GTX 1070 ti in stock online, for the record, http://amazon.co.uk didn't have
+components in the future. It was quite difficult to find a GTX 1070 ti in stock online, for the record [http://amazon.co.uk](http://amazon.co.uk) didn't have
 any available.
 
 <img style="width:70%;margin:auto;display:block;" src="images/pc.png"/>
@@ -62,7 +90,7 @@ spent to build my server I could buy `127` days of usage while with the standard
 
 ##### Power Consumption / Temperatures
 
-The power consumption of the server was tested using a power meter and the results are as follows:
+The power consumption of the server was tested using a power meter and the results were as follows:
 
 <table class="table table-striped">
 <thead>
@@ -87,7 +115,7 @@ I was impressed by how small and thin CPU stock coolers are nowadays.
 
 ### GTX 1070 Ti vs Tesla K80
 
-In order to compare the performance of the `GTX 1070 ti` with the `Tesla K80` used in the `p2.xlarge` EC2 instance I executed
+In order to compare the performance of the `GTX 1070 ti` with (half of) the `Tesla K80` used in the `p2.xlarge` EC2 instance I executed
 the same experiment/benchmark on both systems. The experiment was the following:
 <ul>
 <li> A siamese LSTM deep neural network identifying similar or disimillar speakers (binary classification) </li>
