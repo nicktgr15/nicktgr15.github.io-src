@@ -44,14 +44,14 @@ The `p2.xlarge` EC2 instance is a virtual machine with the following specs:
 </tbody>
 </table>
 
-Amazon claims that the `p2.xlarge` is utilising a `Tesla K80` GPU however this is only *half* of the story.
+Amazon claims that the `p2.xlarge` is using a `Tesla K80` GPU however this is only *half* of the story.
 The `Tesla K80` specs on the [nvidia website](http://www.nvidia.com/object/tesla-k80.html) mention 4992 cuda cores
 *with a dual-GPU design* and 24 GB of GDDR5 memory. Apparently the `K80` is based on two `GK210` chips on a single PCB
 and in the way this particular VM is configured, only one of these chips is available to the user. So to be fair,
 with a `p2.xlarge` you have access to half the resources of a `Tesla K80`.
 
 <blockquote class="blockquote">
-Amazon claims that the p2.xlarge is utilising a Tesla K80 GPU however this is only half of the story
+Amazon claims that the p2.xlarge is using a Tesla K80 GPU however this is only half of the story
 </blockquote>
 
 ### My Server
