@@ -1,8 +1,35 @@
-### How to
+### How does this work?
 
-- Clone the submodules by 
+* The repo used for nicktgr15.github.io is a submodule in this project. When the static contents of the website 
+are updated the submodule gets updated too.
+
+### How to develop locally
+
+* Clone the submodules by 
 ```
 git submodule init 
 git submodule update
 ```
-- Create PRs to update the submodules
+* update the SITEURL in pelicanconf.py
+* `make serve`
+* `make regenerate`
+
+### To publish
+* Revert the SITEURL change in pelicanconf.py
+* `make html`
+* After the new content has been generated under the output folder push changes to the submodule
+** `cd output`
+** `git add -A`
+** `git commit -m "blah""`
+** `git push origin HEAD:master`
+
+Then update the submodule versions in the main repo:
+* `git add output`
+* `git commit -m "blah"`
+* `git push`
+
+* `git add plugins`
+* `git commit -m "blah"`
+* `git push`
+
+Finally, push all other changes

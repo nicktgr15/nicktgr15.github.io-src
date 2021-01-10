@@ -3,3 +3,4 @@ env
 *pyc
 *.pid
 venv
+.python-version

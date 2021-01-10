@@ -46,6 +46,9 @@ THEME = 'themes/pelican-alchemy/alchemy'
 ICONS = [
     ('github', 'https://github.com/nicktgr15'),
     ('linkedin', 'https://www.linkedin.com/in/nikolaos-tsipas-a6103563'),
+    ('instagram', 'https://www.instagram.com/vismajeure/'),
+    ('500px', 'https://500px.com/p/vismajeure'),
+    ('youtube', 'https://www.youtube.com/channel/UCKQC-bjGQ4rsGuyR3WhNynA'),
 ]
 
 #SITEIMAGE = '/images/main-gray.jpg width=170 height=170'
