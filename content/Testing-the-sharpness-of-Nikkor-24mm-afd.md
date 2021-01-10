@@ -20,8 +20,8 @@ closer to the camera will be out of focus but in any case the effect wasn't plea
 
 <img style="width:70%;margin:auto;display:block;" src="images/example-zoom.jpg"/>
 
-Based on the above I decided to take the same shot using the full range of available apertures and decide what works for me 
-going forward. If anything worked for me in the end, as there was always a chance  this lens wasn't good enough for my 
+Based on the above I decided to take a shot using the full range of available apertures and see what works for me 
+going forward. If anything worked for me in the end, as there was always a chance this lens wasn't good enough for my 
 use case (which is still TBD, but I love sharp photos :-D). I knew before getting the lens that sharpness in the corners was 
 not great with smaller f numbers, but wasn't expecting it to be that bad.
 
