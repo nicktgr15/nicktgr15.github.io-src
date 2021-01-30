@@ -11,8 +11,7 @@ git submodule init
 git submodule update
 ```
 * update the SITEURL in pelicanconf.py
-* `make serve`
-* `make regenerate`
+* `make devserver`
 
 ### To publish
 * Revert the SITEURL change in pelicanconf.py
