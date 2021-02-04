@@ -72,7 +72,25 @@ detailed photo with lower levels of noise.
 <img style="width:100%;margin:auto;display:block;" src="images/southside-inside-2x-zoom-1.jpg"/>
 </a>
 
-<h3>Example 5 (Low light indoors) </h3>
+<h3>Example 5 (Outdoors wide-angle) </h3>
+
+In this example the wide-angle camera is used on s10+ and s21. I've also taken the same photo with s9 to have it 
+as a reference point (s9 doesn't have a wide-angle camera/lens).
+
+<a href="images/wide-full.jpg"><img style="width:100%;margin:auto;display:block;" src="images/wide.jpg"/></a>
+
+The image from S21 is definitely sharper than the S10+,  without any unwanted artifacts caused by post-processing.
+So far in the comparison I think it's the most obvious improvement brought by S21.
+
+<a href="images/wide-zoom-1.jpg">
+<img style="width:100%;margin:auto;display:block;" src="images/wide-zoom-1.jpg"/>
+</a>
+
+<a href="images/wide-zoom-2.jpg">
+<img style="width:100%;margin:auto;display:block;" src="images/wide-zoom-2.jpg"/>
+</a>
+
+<h3>Example 6 (Low light indoors) </h3>
 
 The "night mode" was enabled in all three devices for this photo and there's also a fourth image coming from a Nikon 
 D3400 DSLR to make the comparison a bit more interesting. 
@@ -88,6 +106,17 @@ noise reduction during post-processing, however without affecting the image deta
 To be able to take a photo without flash with the D3400 I had to use a pretty high ISO (128000) which caused a lot of
 noise in the photo. With some post-processing it could look better but it's still not a great image. It's impressive
 that modern smartphones can perform better than DSRLs in scenarios like this (at least "handheld" :D).
+
+<h3>Example 7 (1080p Video) </h3>
+
+Finally, to make the comparison a bit more thorough I've included two sample videos taken with the main camera
+of each device. In one of them I'm walking while recording to capture some of the image stabilisation properties
+of the devices. In hindsight, I could have captured 4k video with all three devices, but apart from the lower 
+resolution, 1080p should be ok to get an idea.
+
+<div style="text-align: center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fPVlWDk0goM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 <h3>Verdict</h3>
 

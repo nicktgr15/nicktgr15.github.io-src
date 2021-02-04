@@ -22,13 +22,12 @@ git submodule update
 ** `git commit -m "blah""`
 ** `git push origin HEAD:master`
 
+^^ the same applies for the theme submodule
+
 Then update the submodule versions in the main repo:
-* `git add output`
+* `git add -A`
 * `git commit -m "blah"`
 * `git push`
 
-* `git add plugins`
-* `git commit -m "blah"`
-* `git push`
 
 Finally, push all other changes
