@@ -15,7 +15,7 @@ git submodule update
 
 ### To publish
 * Revert the SITEURL change in pelicanconf.py
-* `make html`
+* `make publish`
 * After the new content has been generated under the output folder push changes to the submodule
 ** `cd output`
 ** `git add -A`
