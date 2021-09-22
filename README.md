@@ -17,10 +17,10 @@ git submodule update
 * Revert the SITEURL change in pelicanconf.py
 * `make publish`
 * After the new content has been generated under the output folder push changes to the submodule
-** `cd output`
-** `git add -A`
-** `git commit -m "blah""`
-** `git push origin HEAD:master`
+  * `cd output`
+  * `git add -A`
+  * `git commit -m "blah""`
+  * `git push origin HEAD:master`
 
 ^^ the same applies for the theme submodule
 
