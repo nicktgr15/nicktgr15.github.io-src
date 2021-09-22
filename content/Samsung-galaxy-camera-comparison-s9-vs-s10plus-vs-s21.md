@@ -1,5 +1,5 @@
 Title: Samsung Galaxy camera comparison S9 vs S10+ vs S21
-Date: 2020-01-30 15:00
+Date: 2021-01-30 15:00
 Category: Photography
 Status: published
 Tags: photography

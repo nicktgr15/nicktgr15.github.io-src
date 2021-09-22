@@ -1,5 +1,5 @@
 Title: Testing how sharp Nikkor 24mm f/2.8 AF-D is on Nikon FX
-Date: 2020-01-10 14:00
+Date: 2021-01-10 14:00
 Category: Photography
 Status: published
 Tags: photography, lens-test
