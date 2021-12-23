@@ -1,3 +1,3 @@
 Title: Contact
 
-Feel free to contact me at `<blog-name>@gmail.com`
+Use any of my social media accounts to contact me
