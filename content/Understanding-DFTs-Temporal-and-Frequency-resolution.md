@@ -229,5 +229,3 @@ I hope the above analysis has helped you become a bit more familiar with the cha
 when using this wonderful tool (i.e. the DFT). 
 Hopefully, next time you'll have to decide about the size of your analysis window or the required sampling rate 
 you will have the right arguments to support your decisions.
-
-Looking forward to comments and corrections.
