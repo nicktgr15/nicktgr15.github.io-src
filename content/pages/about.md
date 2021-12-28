@@ -1,12 +1,12 @@
 Title: About
 
-Data Scientist with a PhD in multimedia information retrieval and strong software engineering background. 
-For a list of my publications please check [google scholar](https://scholar.google.co.uk/citations?user=3JJZYIsAAAAJ&hl=en).
+I'm a Data Scientist with a PhD in Multimedia Information Retrieval ([list of publications](https://scholar.google.co.uk/citations?user=3JJZYIsAAAAJ&hl=en)) and strong software engineering background.
 
+Interested in machine/deep learning, distributed systems, analytics, monitoring, caching, multimedia content 
+distribution and analysis, web services, python, java and others.
 
-Interested in machine and deep learning, distributed systems, analytics, monitoring, caching, multimedia content 
-distribution and analysis, web services, python, java and many others.
+Photography, music (listening, playing, recording, mixing) and random side-projects is how I normally spend my free time.
 
-Photography and music (listening, playing, recording, mixing) are my main hobbies.
+**Projects**
 
-This blog is a space for everything I can't fit somewhere else. A kitchen sink :-D 
+* [pyxis.edu.gr](https://pyxis.edu.gr/)
