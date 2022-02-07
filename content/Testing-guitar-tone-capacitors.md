@@ -67,7 +67,7 @@ with a multimeter, indicated in brackets):
  * Polyester Film  ($22.35 nF$)
  * Ceramic  ($22.94 nF$)
  
-The Parer-in-Oil capacitor is slightly larger than the nominal value, but it's not a huge difference and 
+The Paper-in-Oil capacitor is slightly larger than the nominal value, but it's not a huge difference and 
 shouldn't have significant impact on the filter shape. The small circuit board was wired directly between the tone pot
 and the ground on a Yamaha AES 620 guitar with 2 volume pots, a single tone pot and a toggle switch.
 
