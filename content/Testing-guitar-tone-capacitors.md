@@ -1,4 +1,4 @@
-Title: Testing different types of guitar tone capacitors
+Title: Testing different types of guitar tone capacitors (Orange-Drop vs Paper-in-oil vs Polystyrene vs Polyester vs Ceramic)
 Date: 2021-02-06 15:00
 Category: Music
 Tags: orange drop, paper in oil, polystyrene, polyester, ceramic, capacitors, RC filter, low-pass, guitar tone
