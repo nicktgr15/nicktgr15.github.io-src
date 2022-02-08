@@ -14,7 +14,8 @@ The forward discrete fourier transform (DFT):
 
 $$X_k = \sum_{n=0}^{N-1} x_n \cdot e^{-i~2\pi~k~n~/~N}$$
 
-For the DFT calculation I will borrow the not optimized implementation from [an other](http://jakevdp.github.io/blog/2013/08/28/understanding-the-fft/) blog post.
+For the DFT calculation I will borrow the non optimized implementation from [an other](http://jakevdp.github.io/blog/2013/08/28/understanding-the-fft/) blog post.
+
 
 ```
 #!python
