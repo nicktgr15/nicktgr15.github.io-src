@@ -9,7 +9,9 @@ of the JVM series in the late 2000s. This is work-in-progress, feel free to sugg
 corrections and ways to extend the diagram in the comments. What I'm planning to add next is the
 re-visited DSL series (after 2012) and the Origin series.
 
+* Update #1: diagram updated to have a more complete view of the 60s amp models
+
 <h3>Marshall Amps Genealogy Tree</h3>
 </br>
 
-<img style="width:100%;margin:auto;display:block;" src="images/marshall-tree.jpeg"/>
+<img style="width:100%;margin:auto;display:block;" src="images/marshall-tree-1.jpeg"/>
