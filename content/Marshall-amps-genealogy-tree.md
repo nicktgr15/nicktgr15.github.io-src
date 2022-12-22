@@ -10,8 +10,9 @@ corrections and ways to extend the diagram in the comments. What I'm planning to
 re-visited DSL series (after 2012) and the Origin series.
 
 * Update #1: diagram updated to have a more complete view of the 60s amp models
+* Update #2: diagram updated to add the valvestate series - singe I got a Valvestate 8040 ;-)
 
-<h3>Marshall Amps Genealogy Tree</h3>
+<h3>Marshall Amps Genealogy Tree</h3> 
 </br>
 
 <img style="width:100%;margin:auto;display:block;" src="images/marshall-tree-3.jpeg"/>
