@@ -14,4 +14,4 @@ re-visited DSL series (after 2012) and the Origin series.
 <h3>Marshall Amps Genealogy Tree</h3>
 </br>
 
-<img style="width:100%;margin:auto;display:block;" src="images/marshall-tree-2.jpeg"/>
+<img style="width:100%;margin:auto;display:block;" src="images/marshall-tree-3.jpeg"/>
